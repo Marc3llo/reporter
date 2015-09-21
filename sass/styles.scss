@@ -1,0 +1,190 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
+
+$base-border-radius: 3px !default;
+$appname: 'reporter';
+
+// Colors
+$background: #2E353F;
+$primary: #49A3DF;
+$secondary: #17BC9C;
+
+body, html {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+}
+
+a, a:visited {
+    color: darken($secondary, 15%);
+
+    &:hover {
+        color: darken($secondary, 0%);
+    }
+}
+
+::-webkit-input-placeholder {
+   color: darken($background, 5%) !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: darken($background, 5%) !important;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: darken($background, 5%) !important;
+}
+
+:-ms-input-placeholder {
+   color: darken($background, 5%) !important;
+}
+
+##{$appname}-feedback {
+    position: fixed;
+    bottom: 0px;
+    right: 30px;
+    background: $background;
+    color: $primary;
+    padding: 6px 16px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    font-weight: bold;
+    border-color: darken($background, 10%);
+    border: 1px solid darken($background, 10%);
+    border-bottom: none;
+    cursor: pointer;
+    display: block;
+    @include transform(translateY(60px));
+    @include transition(.3s all $ease-in-out-quad);
+
+    &.visible {
+        @include transform(translateY(0px));
+    }
+}
+
+##{$appname}-container {
+    display: block;
+    min-height: 100%;
+}
+
+##{$appname}-bg {
+    position: absolute;
+    top: 0px; left: 0px;
+    background-color: transparentize($background, .3);
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    &.active {
+        display: block;
+    }
+}
+
+##{$appname}-box {
+    width: 80%;
+    max-width: 600px;
+    background-color: darken($background, 1%);
+    position: absolute;
+    padding: 31px 30px 26px;
+    top: -20%;
+    left: 50%;
+    border-radius: 1px;
+    //border: 1px solid darken($background, 3%);
+    @include transform(translate(-50%, -60%) scale(.8));
+    @include transition(.5s all $ease-in-out-quint);
+    box-shadow: 0 4px 6px rgba(0,0,0,.4);
+
+    @media screen and (max-width: 382px) {
+        width: 100%;
+        padding: 31px 20px 26px;
+    }
+
+    &.active {
+        @include transform(translate(-50%, -60%) scale(1));
+        top: 50%;
+    }
+
+    input, textarea {
+        margin-bottom: 5px;
+        background-color: lighten($background, 8%);
+        border-radius: 1px;
+        border-color: darken($background, 0%);
+        color: $secondary;
+        box-shadow: none;
+        font-weight: 500;
+        padding: 8px 10px;
+        border: none;
+        border-left: 3px solid darken($background, 5%);
+        @include transition(.2s all $ease-in-out-sine);
+
+        &:active, &:focus {
+            //border-color: $secondary;
+            -webkit-appearance: none;
+            -moz-appearance:    none;
+            appearance:         none;
+            box-shadow: none;
+            border-left: 3px solid $secondary;
+        }
+
+        &.error {
+            border-color: #EA6442;
+        }
+    }
+
+    textarea {
+        resize: none;
+        line-height: 1.5em;
+        padding: 5px 10px;
+        height: 160px;
+    }
+
+    input[type="email"] {
+        margin-bottom: 12px;
+    }
+
+    button {
+        float: right;
+        background: transparentize($primary, .2);
+        //border: 1px solid $primary;
+        color: $background;
+        padding: 9px 18px 10px;
+        border-radius: 1px;
+        @include transition(.2s all $ease-in-out-sine);
+
+        &#cancel {
+            margin-right: 10px;
+            color: darken($background, 5%);
+            background-color: transparentize(lighten($background, 20%), .2);
+        }
+
+        &:hover {
+            background: transparentize($primary, 0);
+
+            &#cancel {
+                background-color: transparentize(lighten($background, 20%), 0);
+            }
+        }
+
+        &:active, &:focus {
+            //border-color: $secondary;
+            -webkit-appearance: none;
+            -moz-appearance:    none;
+            appearance:         none;
+            box-shadow: none;
+            outline: none;
+            box-shadow: 0px 0px 4px 2px transparentize($primary, .5);
+
+            &#cancel {
+                background: transparentize($secondary, 0) !important;
+                box-shadow: 0px 0px 4px 2px transparentize($secondary, .5);
+            }
+        }
+    }
+
+    span {
+        color: lighten($background, 15%);
+        display: inline-block;
+        padding: 10px 0 0 1px;
+    }
+}
