@@ -106,10 +106,10 @@ function reporter(idList){
 
         } else {
           if (mail.length < 1){
-            $('input[type="email"]').addClass('error');
+            mail.addClass('error');
           }
           if (desc.length < 1){
-            $('textarea').addClass('error');
+            desc.addClass('error');
           }
         }
       });
