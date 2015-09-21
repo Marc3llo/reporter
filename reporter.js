@@ -106,7 +106,7 @@ function reporter(idList){
 
         } else {
           if (mail.length < 1){
-            $('input').addClass('error');
+            $('input[type="email"]').addClass('error');
           }
           if (desc.length < 1){
             $('textarea').addClass('error');
