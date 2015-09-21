@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h2 id="usage">Usage</h2>
+
+<p>Embed this script (optinally jQuery if not already in use) and replace [api-key] and [idList] with your trello creds.</p>
+
+<pre><code>&lt;script src=&quot;http://code.jquery.com/jquery-1.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://api.trello.com/1/client.js?key=[api-key]&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;http://cdn.rawgit.com/Marc3llo/reporter/master/min/reporter-min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function(){
+            reporter('[idList]');
+    });
+&lt;/script&gt;
+</code></pre>
+
+</body>
+</html>
