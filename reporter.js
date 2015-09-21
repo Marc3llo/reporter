@@ -105,7 +105,7 @@ function reporter(idList){
           $('#'+ appname +'-feedback').addClass('visible');
 
         } else {
-          if (name.length < 1){
+          if (mail.length < 1){
             $('input').addClass('error');
           }
           if (desc.length < 1){
