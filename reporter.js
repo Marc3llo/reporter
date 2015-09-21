@@ -97,7 +97,7 @@ function reporter(idList){
         if(mail.length > 0 && desc.length > 0) {
           console.log(name, desc);
 
-          //Trello.post("/cards", { name: name, desc: " \n**Feedback:** "+ desc +" \n\n--- \n\n **Reporter:** ["+mail+"](mailto:"+mail+") \n **Browser name:** ```"+browserName+"``` \n **Major version:** ```"+majorVersion+"``` \n **Window Size (H×W):** ```" + screenHeight +" × "+ screenWidth +"px``` \n\n--- \n\n **Full version:** ```"+fullVersion+"``` \n **navigator.appName:** ```"+navigator.appName+"``` \n\n`"+navigator.userAgent+"`", idList: ""+idList+"", urlSource: thisUrl });
+          Trello.post("/cards", { name: name, desc: " \n**Feedback:** "+ desc +" \n\n--- \n\n **Reporter:** ["+mail+"](mailto:"+mail+") \n **Browser name:** ```"+browserName+"``` \n **Major version:** ```"+majorVersion+"``` \n **Window Size (H×W):** ```" + screenHeight +" × "+ screenWidth +"px``` \n\n--- \n\n **Full version:** ```"+fullVersion+"``` \n **navigator.appName:** ```"+navigator.appName+"``` \n\n`"+navigator.userAgent+"`", idList: ""+idList+"", urlSource: thisUrl });
 
           $('#'+ appname +'-bg, #'+ appname +'-box').removeClass('active');
           $('#'+ appname +'-box #mail').val(''),
