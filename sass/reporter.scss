@@ -75,6 +75,7 @@ a, a:visited {
     display: none;
     width: 100%;
     height: 100%;
+    z-index: 999999;
 
     &.active {
         display: block;
@@ -94,6 +95,7 @@ a, a:visited {
     @include transform(translate(-50%, -60%) scale(.8));
     @include transition(.5s all $ease-in-out-quint);
     box-shadow: 0 4px 6px rgba(0,0,0,.4);
+    z-index: 9999999;
 
     @media screen and (max-width: 382px) {
         width: 100%;
