@@ -108,7 +108,7 @@ a, a:visited {
     }
 
     input, textarea {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         background-color: lighten($background, 8%);
         border-radius: 1px;
         border-color: darken($background, 0%);
@@ -139,10 +139,7 @@ a, a:visited {
         line-height: 1.5em;
         padding: 5px 10px;
         height: 160px;
-    }
-
-    input[type="email"] {
-        margin-bottom: 12px;
+        margin-bottom: 5px;
     }
 
     button {

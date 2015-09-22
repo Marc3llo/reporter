@@ -63,8 +63,8 @@ function reporter(idList){
 
   var appname = 'reporter';
 
-  //$('head').append('<link rel="stylesheet" href="http://feedback.site/styles.css">');
-  $('head').append('<link rel="stylesheet" href="http://rawgit.com/Marc3llo/reporter/master/reporter.css">');
+  $('head').append('<link rel="stylesheet" href="http://feedback.site/reporter.css">');
+  //$('head').append('<link rel="stylesheet" href="http://rawgit.com/Marc3llo/reporter/master/reporter.css">');
 
   $('body').append('<div id="'+appname+'-container"><div id="'+appname+'-bg"></div><div id="'+appname+'-box"><input required="required" id="name" type="text" placeholder="Title"><textarea required="required" id="desc" name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea><button id="send">send feedback</button><button id="cancel">cancel</button><span>powered by <a href="http://duotones.ch" target="_blank">duotones</a></span></div></div><div id="'+appname+'-feedback" class="visible">send feedback</div>');
 
