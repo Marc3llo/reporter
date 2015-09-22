@@ -66,7 +66,7 @@ function reporter(idList){
   //$('head').append('<link rel="stylesheet" href="http://feedback.site/styles.css">');
   $('head').append('<link rel="stylesheet" href="http://rawgit.com/Marc3llo/reporter/master/reporter.css">');
 
-  $('body').append('<div id="'+appname+'-container"><div id="'+appname+'-bg"></div><div id="'+appname+'-box"><textarea required="required" id="desc" name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea><input required="required" id="mail" type="email" placeholder="E-Mail"><button id="send">send feedback</button><button id="cancel">cancel</button><span>powered by <a href="http://duotones.ch" target="_blank">duotones</a></span></div></div><div id="'+appname+'-feedback" class="visible">send feedback</div>');
+  $('body').append('<div id="'+appname+'-container"><div id="'+appname+'-bg"></div><div id="'+appname+'-box"><input required="required" id="name" type="text" placeholder="Title"><textarea required="required" id="desc" name="desc" id="" cols="30" rows="10" placeholder="Description"></textarea><button id="send">send feedback</button><button id="cancel">cancel</button><span>powered by <a href="http://duotones.ch" target="_blank">duotones</a></span></div></div><div id="'+appname+'-feedback" class="visible">send feedback</div>');
 
   $('#'+ appname +'-feedback').on('click', function(){
     $('#'+ appname +'-bg, #'+ appname +'-box').addClass('active');
@@ -75,7 +75,7 @@ function reporter(idList){
 
   Trello.authorize({
     interactive: true,
-    type: "popup",
+    type: "redirect",
     expiration: "never",
     name: "Feedback",
     persist: "true",
@@ -90,23 +90,26 @@ function reporter(idList){
           thisUrl = window.location.href;
 
       $('#'+appname+'-box #send').click(function(){
-        var name = 'Frontend Feedback',
-            mail = $('#'+ appname +'-box #mail').val(),
+        var name = $('#'+ appname +'-box #name').val(),
+            //mail = $('#'+ appname +'-box #mail').val(),
             desc = $('#'+ appname +'-box #desc').val();
 
         if(mail.length > 0 && desc.length > 0) {
           console.log(name, desc);
 
-          Trello.post("/cards", { name: name, desc: " \n**Feedback:** "+ desc +" \n\n--- \n\n **Reporter:** ["+mail+"](mailto:"+mail+") \n **Browser name:** ```"+browserName+"``` \n **Major version:** ```"+majorVersion+"``` \n **Window Size (H×W):** ```" + screenHeight +" × "+ screenWidth +"px``` \n\n--- \n\n **Full version:** ```"+fullVersion+"``` \n **navigator.appName:** ```"+navigator.appName+"``` \n\n`"+navigator.userAgent+"`", idList: ""+idList+"", urlSource: thisUrl });
+          // **Reporter:** ["+mail+"](mailto:"+mail+") \n
+
+          Trello.post("/cards", { name: name, desc: " \n**Feedback:** "+ desc +" \n\n--- \n\n **Browser name:** ```"+browserName+"``` \n **Major version:** ```"+majorVersion+"``` \n **Window Size (H×W):** ```" + screenHeight +" × "+ screenWidth +"px``` \n\n--- \n\n **Full version:** ```"+fullVersion+"``` \n **navigator.appName:** ```"+navigator.appName+"``` \n\n`"+navigator.userAgent+"`", idList: ""+idList+"", urlSource: thisUrl });
 
           $('#'+ appname +'-bg, #'+ appname +'-box').removeClass('active');
-          $('#'+ appname +'-box #mail').val(''),
+          $('#'+ appname +'-box #name').val('');
+          //$('#'+ appname +'-box #mail').val('');
           $('#'+ appname +'-box #desc').val('');
           $('#'+ appname +'-feedback').addClass('visible');
 
         } else {
           if (mail.length < 1){
-            $('input#mail').addClass('error');
+            $('input#name').addClass('error');
           }
           if (desc.length < 1){
             $('textarea').addClass('error');
@@ -117,7 +120,8 @@ function reporter(idList){
 
   $('#'+ appname +'-box #cancel').on('click', function(){
     $('#'+ appname +'-bg, #'+ appname +'-box').removeClass('active');
-    $('#'+ appname +' #mail').val(''),
+    $('#'+ appname +' #name').val('');
+    //$('#'+ appname +' #mail').val('');
     $('#'+ appname +' #desc').val('');
     $('#'+ appname +'-feedback').addClass('visible');
   });
