@@ -94,7 +94,7 @@ function reporter(idList){
             //mail = $('#'+ appname +'-box #mail').val(),
             desc = $('#'+ appname +'-box #desc').val();
 
-        if(mail.length > 0 && desc.length > 0) {
+        if(name.length > 0 && desc.length > 0) {
           console.log(name, desc);
 
           // **Reporter:** ["+mail+"](mailto:"+mail+") \n
@@ -108,7 +108,7 @@ function reporter(idList){
           $('#'+ appname +'-feedback').addClass('visible');
 
         } else {
-          if (mail.length < 1){
+          if (name.length < 1){
             $('input#name').addClass('error');
           }
           if (desc.length < 1){
