@@ -1,6 +1,6 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
-//@import "base/base";
+@import "base/base";
 
 $base-border-radius: 3px !default;
 $appname: 'reporter';
@@ -16,28 +16,30 @@ body, html {
     margin: 0;
 }
 
-a, a:visited {
-    color: darken($secondary, 15%);
+#reporter-feedback, #reporter-container {
+    a, a:visited {
+        color: darken($secondary, 15%);
 
-    &:hover {
-        color: darken($secondary, 0%);
+        &:hover {
+            color: darken($secondary, 0%);
+        }
     }
-}
 
-::-webkit-input-placeholder {
-   color: darken($background, 5%) !important;
-}
+    ::-webkit-input-placeholder {
+       color: darken($background, 5%) !important;
+    }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: darken($background, 5%) !important;
-}
+    :-moz-placeholder { /* Firefox 18- */
+       color: darken($background, 5%) !important;
+    }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: darken($background, 5%) !important;
-}
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: darken($background, 5%) !important;
+    }
 
-:-ms-input-placeholder {
-   color: darken($background, 5%) !important;
+    :-ms-input-placeholder {
+       color: darken($background, 5%) !important;
+    }
 }
 
 ##{$appname}-feedback {

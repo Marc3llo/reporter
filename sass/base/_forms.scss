@@ -1,6 +1,5 @@
+#reporter-feedback, #reporter-container, #reporter-box {
 fieldset {
-  background-color: lighten($base-border-color, 10%);
-  border: $base-border;
   margin: 0 0 $small-spacing;
   padding: $base-spacing;
 }
@@ -29,9 +28,6 @@ label {
 #{$all-text-inputs},
 select[multiple=multiple],
 textarea {
-  background-color: $base-background-color;
-  border: $base-border;
-  border-radius: $base-border-radius;
   box-shadow: $form-box-shadow;
   box-sizing: border-box;
   font-family: $base-font-family;
@@ -75,4 +71,5 @@ select {
   margin-bottom: $base-spacing;
   max-width: 100%;
   width: auto;
+}
 }
